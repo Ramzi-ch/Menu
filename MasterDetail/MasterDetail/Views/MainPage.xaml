@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<MasterDetailPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:MasterDetail"
+             x:Class="MasterDetail.MainPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            
+                <Style x:Key="LabelStyle" TargetType="Label">
+                    <Setter Property="TextColor" Value="white" />
+                    <Setter Property="FontSize" Value="15" />
+                </Style>
+            
+                <Style x:Key="ImageStyle" TargetType="Image">
+                    <Setter Property="WidthRequest" Value="25" />
+                    <Setter Property="HeightRequest" Value="25" />
+            </Style>
+
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <MasterDetailPage.Master>
+        <ContentPage Padding="18" BackgroundColor="#333333" Title="Menu">
+            <StackLayout Orientation="Vertical">
+                <Image Source="logo.png" WidthRequest="40" HeightRequest="40" Margin="0,80,0,0"/>
+                <StackLayout Orientation="Horizontal">
+
+                    <StackLayout Orientation="Vertical" Margin="10,60,25,0">
+
+                        <Image Source="logo_myaccount.png" Style="{StaticResource ImageStyle}" Margin="0,10,0,0"/>
+                        <Image Source="shop.png" Style="{StaticResource ImageStyle}" Margin="0,20,0,0"/>
+                        <Image Source="notification.png" Style="{StaticResource ImageStyle}" Margin="0,20,0,0"/>
+                        <Image Source="notification.png" Style="{StaticResource ImageStyle}" Margin="0,20,0,0"/>
+
+                    </StackLayout>
+                    <StackLayout Orientation="Vertical" Margin="0,60,0,0">
+                        <ListView x:Name="List1"  HasUnevenRows="False" SeparatorColor="White" ItemTapped="List_OnItemTapped">
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <ViewCell>                                        
+                                       <StackLayout Orientation="Horizontal" >
+                                            <Label Text="{Binding Title}" Style="{StaticResource LabelStyle}" VerticalOptions="CenterAndExpand" HorizontalOptions="StartAndExpand"/>
+                                            <Label Text="{Binding Notification}" Style="{StaticResource LabelStyle}" VerticalOptions="CenterAndExpand"/>
+                                       </StackLayout>                                            
+                                    </ViewCell>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </StackLayout>
+                    
+            </StackLayout>
+                <StackLayout Orientation="Horizontal">
+                    <Image Source="logout.png" WidthRequest="15" HeightRequest="15" Margin="0,4,0,0"/>
+                    <Label Text="LOGOUT" Style="{StaticResource LabelStyle}"/>
+                    
+                </StackLayout>
+            </StackLayout>
+        </ContentPage>
+    </MasterDetailPage.Master>
+
+    <MasterDetailPage.Detail>
+        <ContentPage Padding="18">
+            <StackLayout>
+                
+            </StackLayout>
+        </ContentPage>
+    </MasterDetailPage.Detail>
+
+</MasterDetailPage>
